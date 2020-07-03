@@ -2,7 +2,6 @@ package array;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.testcontainers.shaded.org.apache.http.util.Asserts;
 
 /**
  * 搜索旋转排序数组    https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
