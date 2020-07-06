@@ -58,9 +58,9 @@ public class Chapter6 {
         //调整堆结构+交换堆顶元素与末尾元素
         for (int i = arr.length - 1; i > 0; i--) {
             //将堆顶元素与末尾元素进行交换
-            int temp = arr[i];
-            arr[i] = arr[0];
-            arr[0] = temp;
+            arr[i] = arr[0] + arr[i];
+            arr[0] = arr[i] - arr[0];
+            arr[i] = arr[i] - arr[0];
 
             //重新对堆进行调整
             adjustHeap(arr, 0, i);
@@ -105,7 +105,7 @@ public class Chapter6 {
 
     @Test
     public void test() {
-        int[] nums = {1, 2, 10, 3, 4, 5, 6};
+        int[] nums = {1, 2, 10, 10, 3, 4, 5, 6};
         System.out.println(this.containsDuplicate(nums));
     }
 }
