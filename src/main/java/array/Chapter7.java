@@ -2,6 +2,8 @@ package array;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+
 /**
  * 存在重复元素 II  https://leetcode-cn.com/problems/contains-duplicate-ii/
  * <p>
@@ -27,6 +29,14 @@ import org.junit.Test;
  * @date 2020/7/7
  */
 public class Chapter7 {
+
+    /**
+     * 解法一  暴力解法
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
     public boolean containsNearbyDuplicate(int[] nums, int k) {
         if (k == 0) {
             return false;
@@ -44,10 +54,32 @@ public class Chapter7 {
         return false;
     }
 
+    /**
+     * 解法二  哈希散列实现
+     *
+     * @param nums
+     * @param k
+     * @return
+     */
+    public boolean containsNearbyDuplicate1(int[] nums, int k) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (set.contains(nums[i])) {
+                return true;
+            }
+            set.add(nums[i]);
+            if (set.size() > k) {
+                set.remove(nums[i - k]);
+            }
+        }
+        return false;
+    }
+
 
     @Test
     public void test() {
         int[] nums = {1, 2, 10, 3, 10, 4, 5, 6};
         System.out.println(this.containsNearbyDuplicate(nums, 1));
+        System.out.println(this.containsNearbyDuplicate1(nums, 1));
     }
 }
