@@ -57,7 +57,7 @@ public class Chapter8 {
     }
 
     /**
-     * hash 实现
+     * 树 实现
      * @param nums
      * @param k
      * @param t
